@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.produto.dtos.ProductRecordDto;
 import com.springboot.produto.models.ProdutoModel;
 import com.springboot.produto.repositories.ProductRepository;
+import com.springboot.produto.responses.ApiResponse;
 
 import jakarta.validation.Valid;
 
@@ -24,9 +25,12 @@ public class ProductController {
   }
 
   @PostMapping("/produtos")
-  public ResponseEntity<ProdutoModel> saveProduct(@RequestBody @Valid ProductRecordDto productRecordDto) {
+  public ResponseEntity<ApiResponse<ProdutoModel>> saveProduct(@RequestBody @Valid ProductRecordDto productRecordDto) {
     var produtoModel = new ProdutoModel();
     BeanUtils.copyProperties(productRecordDto, produtoModel);
-    return ResponseEntity.status(HttpStatus.CREATED).body((productRepository.save(produtoModel)));
+    ProdutoModel saveProduct = productRepository.save(produtoModel);
+
+    ApiResponse<ProdutoModel> response = new ApiResponse<>("Produto cadastrado com sucesso!", saveProduct);
+    return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 }
