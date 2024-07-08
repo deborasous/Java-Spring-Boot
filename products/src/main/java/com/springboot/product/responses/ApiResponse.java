@@ -1,4 +1,4 @@
-package com.springboot.produto.responses;
+package com.springboot.product.responses;
 
 public class ApiResponse<T> {
   private String message;

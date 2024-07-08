@@ -1,4 +1,4 @@
-package com.springboot.produto.exceptions;
+package com.springboot.product.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.springboot.produto.responses.ApiResponse;
+import com.springboot.product.responses.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionsHandle {

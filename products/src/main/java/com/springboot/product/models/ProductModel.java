@@ -1,4 +1,4 @@
-package com.springboot.produto.models;
+package com.springboot.product.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TB_PRODUTOS")
-public class ProdutoModel implements Serializable {
+public class ProductModel implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -21,11 +21,11 @@ public class ProdutoModel implements Serializable {
   private String nome;
   private BigDecimal valor;
 
-  public UUID getIdProduto() {
+  public UUID getIdProduct() {
     return idProduto;
   }
 
-  public void setIdProduto(UUID idProduto) {
+  public void setIdProduct(UUID idProduto) {
     this.idProduto = idProduto;
   }
 
@@ -44,5 +44,4 @@ public class ProdutoModel implements Serializable {
   public void setValor(BigDecimal valor) {
     this.valor = valor;
   }
-
 }
